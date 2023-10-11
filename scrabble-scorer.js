@@ -111,21 +111,21 @@ function scoringFunction(word) {
  }
 
 let simpleScore = {
-   name: "Simple Score",
-   description: "Each letter is worth 1 point.",
-   scorerFunction: function(word){return simpleScorer(word)}
+   "name": "Simple Score",
+   "description": "Each letter is worth 1 point.",
+   "scorerFunction": simpleScorer
  };
 
  let bonusVowels = {
-   name: "Bonus Vowels",
-   description: "Vowels are 3 pts, consonants are 1 pt.",
-   scorerFunction: function(word){return vowelBonusScorer(word)}
+   "name": "Bonus Vowels",
+   "description": "Vowels are 3 pts, consonants are 1 pt.",
+   "scorerFunction": vowelBonusScorer
  };
 
  let scrabble = {
-   name: "Scrabble",
-   description: "The traditional scoring algorithm.",
-   scorerFunction: function(word){return scrabbleScorer(word,newPointStructure)}
+   "name": "Scrabble",
+   "description": "The traditional scoring algorithm.",
+   "scorerFunction": scrabbleScorer
  };
 
 const scoringAlgorithms = [simpleScore, bonusVowels, scrabble];
@@ -145,17 +145,17 @@ function scorerPrompt() {
    if(numWord==0)
    {
    console.log("algorithm name: ", scoringAlgorithms[0].name);
-   console.log("scoringFunction result: ", scoringAlgorithms[0].scorerFunction(inputWord));
+   console.log("scoringFunction result: ", scoringAlgorithms[0].scorerFunction());
    }
    else if(numWord==1)
    {
    console.log("algorithm name: ", scoringAlgorithms[1].name);
-   console.log("scoringFunction result: ", scoringAlgorithms[1].scorerFunction(inputWord));
+   console.log("scoringFunction result: ", scoringAlgorithms[1].scorerFunction());
    }
    else if(numWord==2)
    {
    console.log("algorithm name: ", scoringAlgorithms[2].name);
-   console.log("scoringFunction result: ", scoringAlgorithms[2].scorerFunction(inputWord)); 
+   console.log("scoringFunction result: ", scoringAlgorithms[2].scorerFunction()); 
    }
 }
 
